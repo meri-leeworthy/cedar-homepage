@@ -1,3 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Cormorant";
+    src: url("../fonts/Cormorant-SemiBoldItalic.woff") format("woff");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Cormorant";
+    src: url("../fonts/Cormorant-Medium.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Cormorant";
+    src: url("../fonts/Cormorant-Light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Cormorant";
+    src: url("../fonts/Cormorant-MediumItalic.woff") format("woff");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "OldStandardTT";
+    src: url("../fonts/OldStandardTT-Italic.woff") format("woff");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+  }
+}
+
+@layer components {
+  .content-grid-container {
+    @apply grid grid-cols-4 md:grid-cols-5;
+    /* display: grid; */
+    /* grid-template-columns: repeat(auto-fill, 8rem); */
+    /* grid-template-rows: repeat(auto-fill, 8rem); */
+    /* justify-content: start; */
+  }
+
+  .cedar {
+    @apply col-span-4 z-50 h-20 sm:h-24 md:h-32;
+    /* mix-blend-mode: difference; */
+  }
+
+  .cedar h1 {
+    @apply absolute top-8 md:top-16 left-0 font-serif italic text-stone-900 whitespace-nowrap text-5xl md:text-7xl font-semibold;
+  }
+
+  .content-grid-container .empty-row {
+    @apply col-span-5 h-20 sm:h-24 md:h-32;
+  }
+
+  .content-grid-container .sub-cedar {
+    @apply text-stone-900 z-50 col-start-3  col-span-3 row-start-4 text-base sm:text-lg md:text-xl p-3 md:pt-16 md:pr-8 leading-5 md:leading-7 font-serif h-20 sm:h-24 md:h-32 flex flex-col space-y-4;
+  }
+
+  .content-grid-container .bio {
+    @apply text-stone-900 z-50 md:col-start-3 col-start-1 col-span-3 row-start-7 md:row-start-5 text-base sm:text-lg md:text-xl p-3 pt-8 md:pt-12 md:pr-8 leading-5 md:leading-7 font-serif h-20 sm:h-24 md:h-32 flex flex-col space-y-4 pl-4 md:pl-10;
+  }
+
+  .grid-container {
+    @apply relative content-start shrink-0 grow grid grid-cols-4 md:grid-cols-5;
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, 8rem);
+    justify-content: start; */
+  }
+
+  .floating-circle {
+    @apply absolute rounded-full bg-stone-100 w-60 h-60 md:w-[24rem] top-0 right-0 md:h-[24rem] z-0;
+    transform: rotate(0deg);
+    transform-origin: 80% 20%;
+    transition-property: transform;
+    transition-duration: 1s;
+    transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  .grid-container .grid-box {
+    @apply bg-transparent w-full h-20 sm:h-24 md:h-32 overflow-visible relative;
+  }
+
+  .grid-heading .grid-box:nth-child(3n + 2) {
+    @apply bg-green-900 opacity-80 z-10 hover:bg-green-800;
+  }
+
+  .grid-heading .grid-box:nth-child(3n + 2):hover ~ .floating-circle {
+    transform: rotate(20deg);
+  }
+
+  .grid-heading .grid-box:nth-child(3n) {
+    @apply bg-black opacity-80 z-10 hover:bg-stone-900;
+  }
+
+  .grid-heading .grid-box:nth-child(3n):hover ~ .floating-circle {
+    transform: rotate(40deg);
+  }
+
+  .grid-heading .grid-box:nth-child(7n + 3),
+  .grid-about .grid-box:nth-child(6n) {
+    @apply bg-orange-100 z-10 hover:bg-white opacity-80;
+  }
+
+  .grid-heading .grid-box:nth-child(7n + 3):hover ~ .floating-circle {
+    transform: rotate(-20deg);
+  }
+
+  .grid-heading .grid-box:nth-child(2),
+  .grid-heading .grid-box:nth-child(n + 15):nth-child(-n + 23),
+  .grid-about .grid-box:nth-child(18) {
+    @apply bg-transparent;
+  }
+}
+
 html,
 body {
   padding: 0;
